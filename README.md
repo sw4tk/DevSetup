@@ -1,24 +1,67 @@
 # DevSetup
 
-DevSetup is a Python CLI tool that scans a developer machine and detects installed development tools and their versions.
+DevSetup is a Python CLI utility that scans a developer machine, detects installed development tools, and exports environment information into a structured JSON format.
 
-The project is being built to eventually help developers export and recreate their development environments across different machines.
+The long-term goal is to allow developers to recreate their development environments on new machines with minimal setup effort.
+
+## Version
+
+Current Version: v0.2.0
 
 ## Features
 
-### Current Features (v0.1)
+### Environment Scanning
 
-* Detect installed development tools
-* Check tool availability
-* Retrieve tool version information
-* Modular project structure
-* Error handling for missing tools
+Detect installed developer tools and retrieve version information.
 
-### Supported Tools
+Currently supported:
 
 * Python
 * Git
 * Pip
+
+### JSON Export
+
+Generate a machine-readable environment snapshot.
+
+Example:
+
+```json
+{
+    "python": {
+        "installed": true,
+        "version": "Python 3.14.0"
+    },
+    "git": {
+        "installed": true,
+        "version": "git version 2.50.1"
+    }
+}
+```
+
+### Environment Reports
+
+Generate a human-readable report showing:
+
+* Total tools scanned
+* Installed tools
+* Missing tools
+
+Example:
+
+```text
+DevSetup Report
+====================
+
+Total Scanned: 3
+
+Installed:
+✔ python : Python 3.14.0
+✔ git : git version 2.50.1
+
+Missing:
+✘ node
+```
 
 ## Project Structure
 
@@ -27,7 +70,10 @@ devsetup/
 
 ├── main.py
 ├── scanner.py
+├── saver.py
+├── filter.py
 ├── tools.py
+├── data.json
 └── README.md
 ```
 
@@ -36,7 +82,7 @@ devsetup/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/devsetup.git
+git clone https://github.com/sw4tk/devsetup.git
 ```
 
 Move into the project directory:
@@ -45,52 +91,11 @@ Move into the project directory:
 cd devsetup
 ```
 
-## Usage
-
 Run:
 
 ```bash
 python main.py
 ```
-
-Example Output:
-
-```text
-python : Python 3.14.0
-git : git version 2.50.1.windows.1
-pip : pip 25.1
-```
-
-If a tool is not installed:
-
-```text
-node : Not found
-```
-
-## How It Works
-
-DevSetup uses Python's `subprocess` module to execute version commands and determine whether developer tools are installed.
-
-Example:
-
-```python
-subprocess.run(
-    ["python", "--version"],
-    capture_output=True,
-    text=True
-)
-```
-
-## Learning Goals
-
-This project is helping me learn:
-
-* Python automation
-* System programming
-* CLI application development
-* Subprocess management
-* Project architecture
-* Environment configuration tools
 
 ## Roadmap
 
@@ -98,7 +103,6 @@ This project is helping me learn:
 
 * Tool detection
 * Version scanning
-* Modular architecture
 
 ### v0.2
 
@@ -108,19 +112,30 @@ This project is helping me learn:
 ### v0.3
 
 * CLI commands
-* Configuration management
+* Scan command
+* Report command
+* Version command
 
 ### v0.4
 
-* Profile support
+* Environment profiles
+
+### v0.5
+
+* Environment comparison
 
 ### v1.0
 
-* Environment export and recreation
+* Environment recreation
+* One-command machine setup
 
 ## Long-Term Vision
 
-DevSetup aims to become a tool that allows developers to move to a new machine and restore their development environment with minimal setup effort.
+Infrastructure as Code manages servers.
+
+DevSetup aims to manage developer machines.
+
+A developer should be able to move to a completely new machine and restore their workflow with minimal effort.
 
 ## Author
 
