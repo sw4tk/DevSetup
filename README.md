@@ -82,7 +82,7 @@ devsetup/
 Clone the repository:
 
 ```bash
-git clone https://github.com/sw4tk/devsetup.git
+git clone https://github.com/sw4tk/DevSetup
 ```
 
 Move into the project directory:
