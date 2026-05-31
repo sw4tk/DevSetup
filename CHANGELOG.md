@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.3.0
+
+### Added
+
+* Command routing system
+* `scan` command
+* `report` command
+* `version` command
+* JSON loading support via `loader.py`
+* Usage/help message for missing commands
+
+### Improved
+
+* Better separation of concerns
+* Modular report generation
+* Cleaner application architecture
+* Safer command handling
+
+---
+
 ## v0.2.0
 
 ### Added
