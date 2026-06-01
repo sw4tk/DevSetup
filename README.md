@@ -1,6 +1,6 @@
 # DevSetup
 
-DevSetup is an open-source Python CLI utility that scans a developer machine, detects installed development tools, and exports environment information into a structured JSON format.
+DevSetup is an open-source Python CLI utility that scans a developer machine, detects installed development tools, analyzes environment readiness, and exports environment information into a structured JSON format.
 
 The long-term goal of DevSetup is to make developer environments portable, reproducible, and easy to restore on new machines.
 
@@ -8,7 +8,7 @@ The long-term goal of DevSetup is to make developer environments portable, repro
 
 ## Current Version
 
-**v0.3.0**
+**v0.4.0**
 
 ---
 
@@ -16,7 +16,7 @@ The long-term goal of DevSetup is to make developer environments portable, repro
 
 ### Environment Scanning
 
-Detect installed developer tools and retrieve version information.
+Detect installed development tools and retrieve version information.
 
 Currently supported:
 
@@ -58,7 +58,7 @@ Generate a human-readable report showing:
 Example:
 
 ```text
-DevSetup v0.3.0 Report
+DevSetup Report
 ====================
 
 Total Scanned: 3
@@ -74,8 +74,6 @@ Missing:
 ---
 
 ### Command-Based Interface
-
-DevSetup now supports commands.
 
 #### Scan Environment
 
@@ -103,6 +101,40 @@ Displays the current DevSetup version.
 
 ---
 
+## Doctor Command
+
+Analyze development environment readiness based on predefined developer profiles.
+
+Supported Profiles:
+
+* Web Development
+* Python Development
+* AI Development
+
+Example:
+
+```bash
+python main.py doctor webdev
+```
+
+Example Output:
+
+```text
+DevSetup v0.4 Doctor
+====================
+
+Profile : Web Development
+Description : Frontend and Backend Development
+
+Environment Health : 75%
+Installed : 3/4
+
+Issues :
+    vscode missing
+```
+
+---
+
 ## Project Structure
 
 ```text
@@ -114,6 +146,8 @@ devsetup/
 ├── loader.py
 ├── categorizer.py
 ├── printer.py
+├── doctor.py
+├── profiles.py
 ├── tools.py
 ├── VERSION
 ├── CHANGELOG.md
@@ -155,6 +189,12 @@ Check version:
 python main.py version
 ```
 
+Run doctor:
+
+```bash
+python main.py doctor webdev
+```
+
 ---
 
 ## Roadmap
@@ -182,19 +222,25 @@ python main.py version
 * Doctor command
 * Environment diagnostics
 * Environment health scoring
+* Development profiles
+* Profile-aware diagnostics
 
 ### v0.5
 
-* Environment profiles
+* Custom profile creation
 * Profile saving
 * Profile loading
 * Profile listing
-* Profile metadata
 
 ### v0.6
 
 * Environment comparison
 * Environment diff reports
+
+### v0.7
+
+* Export profiles
+* Import profiles
 
 ### v1.0
 
@@ -212,13 +258,29 @@ DevSetup aims to manage developer machines.
 
 A developer should be able to move to a completely new machine and restore their workflow with minimal effort.
 
-Example future workflow:
+Future workflow:
 
 ```bash
 devsetup scan
+
 devsetup export work
+
 devsetup apply work
 ```
+
+---
+
+## Why DevSetup?
+
+Setting up a new development machine often requires:
+
+* Installing runtimes
+* Installing package managers
+* Configuring tools
+* Remembering versions
+* Rebuilding workflows
+
+DevSetup aims to automate and standardize that process.
 
 ---
 
@@ -233,6 +295,8 @@ Suggestions, bug reports, and contributions are welcome.
 ## Author
 
 Swastik
+
+---
 
 ## License
 

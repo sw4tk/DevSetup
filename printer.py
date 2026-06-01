@@ -1,5 +1,5 @@
 def printer(data,installed,missing):
-    print('DevSetup v0.2.0 Report')
+    print('DevSetup v0.4.0 Report')
     print('='*20)
  
     print(f'\nTotal Scanned:{len(data)}\n')
