@@ -1,12 +1,16 @@
 # DevSetup
 
-DevSetup is a Python CLI utility that scans a developer machine, detects installed development tools, and exports environment information into a structured JSON format.
+DevSetup is an open-source Python CLI utility that scans a developer machine, detects installed development tools, and exports environment information into a structured JSON format.
 
-The long-term goal is to allow developers to recreate their development environments on new machines with minimal setup effort.
+The long-term goal of DevSetup is to make developer environments portable, reproducible, and easy to restore on new machines.
 
-## Version
+---
 
-Current Version: v0.2.0
+## Current Version
+
+**v0.3.0**
+
+---
 
 ## Features
 
@@ -19,6 +23,8 @@ Currently supported:
 * Python
 * Git
 * Pip
+
+---
 
 ### JSON Export
 
@@ -39,6 +45,8 @@ Example:
 }
 ```
 
+---
+
 ### Environment Reports
 
 Generate a human-readable report showing:
@@ -50,7 +58,7 @@ Generate a human-readable report showing:
 Example:
 
 ```text
-DevSetup Report
+DevSetup v0.3.0 Report
 ====================
 
 Total Scanned: 3
@@ -63,6 +71,38 @@ Missing:
 ✘ node
 ```
 
+---
+
+### Command-Based Interface
+
+DevSetup now supports commands.
+
+#### Scan Environment
+
+```bash
+python main.py scan
+```
+
+Scans the environment and saves results to `data.json`.
+
+#### Generate Report
+
+```bash
+python main.py report
+```
+
+Loads previously exported data and generates a report.
+
+#### Show Version
+
+```bash
+python main.py version
+```
+
+Displays the current DevSetup version.
+
+---
+
 ## Project Structure
 
 ```text
@@ -71,31 +111,51 @@ devsetup/
 ├── main.py
 ├── scanner.py
 ├── saver.py
-├── filter.py
+├── loader.py
+├── categorizer.py
+├── printer.py
 ├── tools.py
-├── data.json
-└── README.md
+├── VERSION
+├── CHANGELOG.md
+├── README.md
+└── .gitignore
 ```
+
+---
 
 ## Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/sw4tk/DevSetup
+git clone https://github.com/sw4tk/DevSetup.git
 ```
 
 Move into the project directory:
 
 ```bash
-cd devsetup
+cd DevSetup
 ```
 
-Run:
+Run a scan:
 
 ```bash
-python main.py
+python main.py scan
 ```
+
+Generate a report:
+
+```bash
+python main.py report
+```
+
+Check version:
+
+```bash
+python main.py version
+```
+
+---
 
 ## Roadmap
 
@@ -111,23 +171,38 @@ python main.py
 
 ### v0.3
 
-* CLI commands
+* Command routing
 * Scan command
 * Report command
 * Version command
+* JSON loading support
 
 ### v0.4
 
-* Environment profiles
+* Doctor command
+* Environment diagnostics
+* Environment health scoring
 
 ### v0.5
 
+* Environment profiles
+* Profile saving
+* Profile loading
+* Profile listing
+* Profile metadata
+
+### v0.6
+
 * Environment comparison
+* Environment diff reports
 
 ### v1.0
 
 * Environment recreation
+* Apply engine
 * One-command machine setup
+
+---
 
 ## Long-Term Vision
 
@@ -137,6 +212,28 @@ DevSetup aims to manage developer machines.
 
 A developer should be able to move to a completely new machine and restore their workflow with minimal effort.
 
+Example future workflow:
+
+```bash
+devsetup scan
+devsetup export work
+devsetup apply work
+```
+
+---
+
+## Contributing
+
+DevSetup is currently under active development.
+
+Suggestions, bug reports, and contributions are welcome.
+
+---
+
 ## Author
 
 Swastik
+
+## License
+
+MIT License
