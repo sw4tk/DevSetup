@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.4.0
+
+### Added
+
+* Doctor command
+* Environment health scoring
+* Profile-aware diagnostics
+* Web Development profile
+* Python Development profile
+* AI Development profile
+* Profile descriptions
+* Installed tool statistics
+
+### Improved
+
+* Better error handling
+* Structured profile system
+* More informative environment reports
+
+---
+
 ## v0.3.0
 
 ### Added
