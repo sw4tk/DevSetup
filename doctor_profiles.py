@@ -1,4 +1,4 @@
-profiles = {
+doctor_profiles = {
     "webdev": {
         "profile" : "Web Development",
         "description" : "Frontend and Backend Development",
