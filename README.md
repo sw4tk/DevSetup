@@ -1,6 +1,6 @@
 # DevSetup
 
-DevSetup is an open-source Python CLI utility that scans a developer machine, detects installed development tools, analyzes environment readiness, and exports environment information into a structured JSON format.
+DevSetup is an open-source Python CLI utility that scans a developer machine, detects installed development tools, analyzes environment readiness, manages development profiles, and exports environment information into structured JSON files.
 
 The long-term goal of DevSetup is to make developer environments portable, reproducible, and easy to restore on new machines.
 
@@ -8,7 +8,7 @@ The long-term goal of DevSetup is to make developer environments portable, repro
 
 ## Current Version
 
-**v0.4.0**
+**v0.5.0**
 
 ---
 
@@ -81,7 +81,7 @@ Missing:
 python main.py scan
 ```
 
-Scans the environment and saves results to `data.json`.
+Scans the environment and saves results.
 
 #### Generate Report
 
@@ -89,7 +89,7 @@ Scans the environment and saves results to `data.json`.
 python main.py report
 ```
 
-Loads previously exported data and generates a report.
+Loads previously saved scan data and generates a report.
 
 #### Show Version
 
@@ -103,7 +103,7 @@ Displays the current DevSetup version.
 
 ## Doctor Command
 
-Analyze development environment readiness based on predefined developer profiles.
+Analyze environment readiness using predefined development profiles.
 
 Supported Profiles:
 
@@ -135,6 +135,63 @@ Issues :
 
 ---
 
+## Custom Profile Management
+
+Create and manage your own development profiles.
+
+### Create Profile
+
+```bash
+python main.py profile create myprofile
+```
+
+### List Profiles
+
+```bash
+python main.py profile list
+```
+
+### Show Profile
+
+```bash
+python main.py profile show myprofile
+```
+
+### Edit Profile
+
+```bash
+python main.py profile edit myprofile
+```
+
+### Delete Profile
+
+```bash
+python main.py profile delete myprofile
+```
+
+Profiles are stored as JSON files inside:
+
+```text
+profiles/
+```
+
+Example:
+
+```json
+{
+    "name": "webstack",
+    "description": "My Web Development Environment",
+    "tools": [
+        "git",
+        "node",
+        "npm",
+        "vscode"
+    ]
+}
+```
+
+---
+
 ## Project Structure
 
 ```text
@@ -147,8 +204,11 @@ devsetup/
 ├── categorizer.py
 ├── printer.py
 ├── doctor.py
-├── profiles.py
+├── doctor_profiles.py
+├── profile_manager.py
+├── profile_storage.py
 ├── tools.py
+├── profiles/
 ├── VERSION
 ├── CHANGELOG.md
 ├── README.md
@@ -183,16 +243,16 @@ Generate a report:
 python main.py report
 ```
 
-Check version:
-
-```bash
-python main.py version
-```
-
-Run doctor:
+Run diagnostics:
 
 ```bash
 python main.py doctor webdev
+```
+
+Manage profiles:
+
+```bash
+python main.py profile list
 ```
 
 ---
@@ -228,19 +288,22 @@ python main.py doctor webdev
 ### v0.5
 
 * Custom profile creation
-* Profile saving
-* Profile loading
+* Profile editing
+* Profile deletion
 * Profile listing
+* JSON profile storage
 
 ### v0.6
 
 * Environment comparison
+* Profile comparison
 * Environment diff reports
 
 ### v0.7
 
 * Export profiles
 * Import profiles
+* Profile sharing
 
 ### v1.0
 
