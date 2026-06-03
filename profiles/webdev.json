@@ -1,0 +1,10 @@
+{
+    "name": "webdev",
+    "description": "Frontend and Backend Development",
+    "tools": [
+        "git",
+        "node",
+        "npm",
+        "vscode"
+    ]
+}
