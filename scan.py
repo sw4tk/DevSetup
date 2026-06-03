@@ -2,9 +2,7 @@ import subprocess
 
 def check_tool(tools):
     data = {}
-    
     for name in tools: 
-        
         try:
             result = subprocess.run(
                 [name,'--version'],
@@ -22,8 +20,7 @@ def check_tool(tools):
                         'version' : None
                     }
         except FileNotFoundError:
-            data[name] = {'installed' : False,'version' : None}
-                
+            data[name] = {'installed' : False,'version' : None}      
     return data
         
        

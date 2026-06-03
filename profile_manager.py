@@ -1,6 +1,6 @@
 import os
-from profile_storage import saver
-from profile_storage import loader
+from profile_storage import psaver
+from profile_storage import ploader
  
 def ensure_profiles_folder():
     if os.path.exists("profiles") and os.path.isdir("profiles"):
@@ -36,7 +36,7 @@ def create_profile(name):
 
     profile["tools"] = tools
    
-    saver(name,profile)
+    psaver(name,profile)
     print(f"Profile {name} created successfully")
 
 def list_profiles():
@@ -61,7 +61,7 @@ def show_profile(name):
         print(f"Profile {name} does not exist")
         return
 
-    profile = loader(name)
+    profile = ploader(name)
     
     print(f"Name: {profile['name']}")
     print(f"Description: {profile['description']}")
@@ -81,7 +81,7 @@ def delete_profile(name):
 
 def edit_profile(name):
     show_profile(name)
-    profile = loader(name)
+    profile = ploader(name)
     description = input("Enter new description (leave blank to keep current): ")
     if description:
         profile["description"] = description
@@ -90,7 +90,7 @@ def edit_profile(name):
     if tools:
         profile["tools"] = tools.split(",")
     
-    saver(name,profile)
+    psaver(name,profile)
     print(f"Profile {name} updated successfully")
 
 

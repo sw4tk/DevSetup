@@ -1,0 +1,10 @@
+{
+    "name": "ai",
+    "description": "AI Development Environment",
+    "tools": [
+        "python",
+        "pip",
+        "git",
+        "jupyter"
+    ]
+}

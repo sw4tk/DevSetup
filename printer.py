@@ -1,8 +1,7 @@
 def printer(data,installed,missing):
-    print('DevSetup v0.4.0 Report')
-    print('='*20)
+    print('='*35)
  
-    print(f'\nTotal Scanned:{len(data)}\n')
+    print(f'\nTotal Scanned:{len(data)}')
 
     print('\nInstalled:')
     if not installed:
@@ -17,4 +16,5 @@ def printer(data,installed,missing):
         print('None')
     else:
         for item in missing:
-            print(f"✘ {item}\n")
+            print(f"✘ {item}")
+        

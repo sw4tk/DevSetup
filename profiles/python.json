@@ -1,0 +1,9 @@
+{
+    "name": "python",
+    "description": "Python Development Environment",
+    "tools": [
+        "python",
+        "pip",
+        "git"
+    ]
+}

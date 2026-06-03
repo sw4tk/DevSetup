@@ -1,14 +1,14 @@
-from scanner import check_tool
+from scan import check_tool
 from tools import tools
 from categorizer import categorizer
 from printer import printer
-from doctor import doctor
-from loader import loader
-from saver import saver
-from doctor_profiles import doctor_profiles as profiles
+from storage import loader,saver
+from profile_storage import ploader,psaver
 from profile_manager import create_profile, delete_profile, list_profiles, edit_profile,show_profile
 import os
+import argparse
 import sys
+
 
 
 
@@ -18,44 +18,40 @@ if len(sys.argv) < 2:
 else:
     command = sys.argv[1]
     if command == 'scan':
-        print('Scanning...')
-        data = check_tool(tools)
-        installed,missing = categorizer(data)
-        saver(data)
-        printer(data,installed,missing)
+        if len(sys.argv) > 2:
+            profile = sys.argv[2]
+            profile_data = ploader(profile)
+            tools = profile_data['tools']
+            data = check_tool(tools)
+            installed,missing = categorizer(data)
+            health = (len(installed) / len(tools)) * 100
+            print('\nDevsetup v0.5.0 Profile Comparision')
+            printer(data,installed,missing)
+            print(f'\nEnvironment Health : {health:.2f}%')
+            print(f'Installed : {len(installed)}/{len(tools)}\n')
+
+        
+        else:
+            print('\nScanning...')
+            data = check_tool(tools)
+            installed,missing = categorizer(data)
+            saver(data)
+            print('\nDevsetup v0.5.0 Scan Report')
+            printer(data,installed,missing)
+            print('\n')
+            
 
     elif command == 'report':
         data = loader()
         installed,missing = categorizer(data)
+        print('\nDevsetup v0.5.0 Report')
         printer(data,installed,missing)
+        print('\n')
 
     elif command == 'version':
        with open('VERSION','r') as f:
             print(f'Version : {f.read()}')
 
-    elif command == 'doctor':
-        try:
-            if len(sys.argv) < 3:
-                print('usage:\n    python main.py doctor <profile>')
-                print('\nProfiles :\n\n    webdev\n    python\n    ai')
-            else:
-                docdata = doctor(profiles,sys.argv[2])
-                print('\nDevSetup v0.4 Doctor')
-                print('='*20)
-                print(f'\nProfile : {docdata["profile"]}')
-                print(f'Description : {docdata["description"]}')
-                print(f'Environment Health : {docdata["health"]:.0f}%')
-                print(f'Installed : {docdata["installed_count"]}/{docdata["total_count"]}\n')
-                print('Issues : ')
-                if not docdata['issues']:
-                    print('    None')
-                else:
-                    for name in docdata['issues']:
-                        print(f'    {name} missing.')
-                print('\n')
-
-        except ValueError:
-            print('Invalid profile')
     elif command == 'profile':
         if len(sys.argv) < 3:
             print('usage:\n    python main.py profile create <name>\n    python main.py profile show <name>\n    python main.py profile delete <name>\n    python main.py profile edit <name>\n python main.py profile list')
