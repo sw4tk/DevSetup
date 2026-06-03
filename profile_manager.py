@@ -63,11 +63,12 @@ def show_profile(name):
 
     profile = ploader(name)
     
-    print(f"Name: {profile['name']}")
+    print(f"\nName: {profile['name']}")
     print(f"Description: {profile['description']}")
     print("Tools :")
     for tool in profile["tools"]:
         print(f" - {tool}")
+    print('\n')
 
 
 def delete_profile(name):

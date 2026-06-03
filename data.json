@@ -1,0 +1,146 @@
+{
+    "python": {
+        "installed": true,
+        "version": "Python 3.14.3"
+    },
+    "git": {
+        "installed": false,
+        "version": null
+    },
+    "pip": {
+        "installed": true,
+        "version": "pip 26.1 from C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python314\\site-packages\\pip (python 3.14)"
+    },
+    "node": {
+        "installed": false,
+        "version": null
+    },
+    "npm": {
+        "installed": false,
+        "version": null
+    },
+    "yarn": {
+        "installed": false,
+        "version": null
+    },
+    "pnpm": {
+        "installed": false,
+        "version": null
+    },
+    "bun": {
+        "installed": false,
+        "version": null
+    },
+    "docker": {
+        "installed": false,
+        "version": null
+    },
+    "docker-compose": {
+        "installed": false,
+        "version": null
+    },
+    "kubectl": {
+        "installed": false,
+        "version": null
+    },
+    "helm": {
+        "installed": false,
+        "version": null
+    },
+    "terraform": {
+        "installed": false,
+        "version": null
+    },
+    "ansible": {
+        "installed": false,
+        "version": null
+    },
+    "go": {
+        "installed": false,
+        "version": null
+    },
+    "rustc": {
+        "installed": false,
+        "version": null
+    },
+    "cargo": {
+        "installed": false,
+        "version": null
+    },
+    "java": {
+        "installed": false,
+        "version": null
+    },
+    "javac": {
+        "installed": false,
+        "version": null
+    },
+    "mvn": {
+        "installed": false,
+        "version": null
+    },
+    "gradle": {
+        "installed": false,
+        "version": null
+    },
+    "ruby": {
+        "installed": false,
+        "version": null
+    },
+    "gem": {
+        "installed": false,
+        "version": null
+    },
+    "php": {
+        "installed": false,
+        "version": null
+    },
+    "aws": {
+        "installed": false,
+        "version": null
+    },
+    "gcloud": {
+        "installed": false,
+        "version": null
+    },
+    "az": {
+        "installed": false,
+        "version": null
+    },
+    "psql": {
+        "installed": false,
+        "version": null
+    },
+    "mysql": {
+        "installed": false,
+        "version": null
+    },
+    "mongosh": {
+        "installed": false,
+        "version": null
+    },
+    "redis-cli": {
+        "installed": false,
+        "version": null
+    },
+    "make": {
+        "installed": false,
+        "version": null
+    },
+    "cmake": {
+        "installed": false,
+        "version": null
+    },
+    "curl": {
+        "installed": true,
+        "version": "curl 8.13.0 (Windows) libcurl/8.13.0 Schannel zlib/1.3.1 WinIDN\nRelease-Date: 2025-04-02\nProtocols: dict file ftp ftps http https imap imaps ipfs ipns mqtt pop3 pop3s smb smbs smtp smtps telnet tftp ws wss\nFeatures: alt-svc AsynchDNS HSTS HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM SPNEGO SSL SSPI threadsafe Unicode UnixSockets"
+    },
+    "wget": {
+        "installed": false,
+        "version": null
+    },
+    "jq": {
+        "installed": false,
+        "version": null
+    }
+}

@@ -1,4 +1,4 @@
-tools = [
+default_tools = [
     # Package Managers & Runtimes (Original)
     'python', 'git', 'pip', 
     
@@ -19,4 +19,4 @@ tools = [
     
     # Linters, Formatters & Build Tools
     'make', 'cmake', 'curl', 'wget', 'jq'
-]
+   ]
