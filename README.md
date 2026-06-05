@@ -1,10 +1,12 @@
 # DevSetup
 
-DevSetup is an open-source Python CLI that scans developer environments, manages development profiles, exports configurations, and helps recreate developer setups across machines.
+DevSetup is a lightweight open-source CLI tool that scans a developer's machine and compares it against predefined development profiles.
 
-The long-term goal is simple:
+It helps developers quickly understand:
 
-**Move to a new machine and restore your development workflow with minimal effort.**
+* What tools are installed
+* What tools are missing
+* How their environment matches a development role
 
 ---
 
@@ -14,224 +16,153 @@ The long-term goal is simple:
 
 ---
 
+# Core Idea
+
+Instead of manually checking tools one by one, DevSetup lets you define or use a **development profile** and instantly compare your system against it.
+
+Example:
+
+```bash
+devsetup scan webdev
+```
+
+---
+
 # Features
 
 ## Environment Scanning
 
-Scan installed development tools and generate reports.
+DevSetup scans your system and detects installed development tools.
 
 Supported tools include:
 
 * Python
 * Git
-* Pip
 * Node.js
 * npm
-* Yarn
-* pnpm
-* Bun
 * Docker
-* Kubernetes
-* Terraform
-* AWS CLI
 * Java
 * Go
 * Rust
-* And many more
+* Kubernetes tools
+* Cloud CLIs
 
 ---
 
-## Environment Reports
+## Profile-Based Environment Comparison
 
-Generate a human-readable report showing:
-
-* Total tools scanned
-* Installed tools
-* Missing tools
-
-Example:
-
-```text
-DevSetup v0.7.0 Scan Report
-
-Installed:
-✔ python
-✔ git
-✔ node
-
-Missing:
-✘ docker
-✘ kubectl
-```
-
----
-
-## Profile-Based Scanning
-
-Compare your machine against a development profile.
+Compare your system with a predefined profile.
 
 Example:
 
 ```bash
-python main.py scan webdev
+devsetup scan webdev
 ```
 
 Output:
 
-```text
-DevSetup v0.7.0 Profile Comparison
-
-Environment Health : 75.00%
-Installed : 6/8
-```
+* Installed tools
+* Missing tools
+* Environment health score
 
 ---
 
-## Built-In Profiles
+## Built-in Profiles
 
-DevSetup includes profiles for:
+DevSetup ships with ready-to-use profiles:
 
-* Web Development
-* Python Development
-* AI Engineering
-* Data Science
-* DevOps
-* Cloud Engineering
-* Backend Development
-* Frontend Development
-* Mobile Development
-* Cybersecurity
-* Game Development
-* And many more
+* webdev
+* python
+* ai
+* data-science
+* devops
+* backend
+* frontend
+* mobile
+* cloud
+* cybersecurity
 
 ---
 
 ## Custom Profiles
 
-Create your own development profiles.
+Create your own environment profiles.
 
-Example:
+### Create Profile
 
 ```bash
-python main.py profile create myprofile
+devsetup profile create myprofile
 ```
 
-List profiles:
+### List Profiles
 
 ```bash
-python main.py profile list
+devsetup profile list
 ```
 
-Show profile:
+### Show Profile
 
 ```bash
-python main.py profile show myprofile
+devsetup profile show myprofile
 ```
 
-Edit profile:
+### Edit Profile
 
 ```bash
-python main.py profile edit myprofile
+devsetup profile edit myprofile
 ```
 
-Delete profile:
+### Delete Profile
 
 ```bash
-python main.py profile delete myprofile
+devsetup profile delete myprofile
 ```
 
 ---
 
-## Profile Export
+## Profile Import / Export
 
-Export profiles and share them with other developers.
+Share profiles between machines or developers.
 
-Example:
+### Export Profile
 
 ```bash
-python main.py profile export webdev
+devsetup profile export webdev
 ```
 
-Generated:
+Output:
 
 ```text
 webdev_export.json
 ```
 
----
-
-## Profile Import
-
-Import profiles from exported JSON files.
-
-Example:
+### Import Profile
 
 ```bash
-python main.py profile import webdev_export.json
+devsetup profile import webdev_export.json
 ```
+
+Imported profiles are automatically validated before saving.
 
 ---
 
 ## Profile Validation
 
-Imported profiles are automatically validated.
+All imported profiles are validated:
 
-Validation checks:
-
-* Required fields exist
-* Tools field is a list
-* Tool names are strings
-* At least one tool exists
+* Required fields exist (name, description, tools)
+* Tools must be a list
+* Tools must contain strings
+* Must have at least one tool
 
 ---
 
-## JSON Environment Snapshot
+## Environment Report
 
-Environment scans are stored as:
-
-```text
-data.json
-```
-
-Example:
-
-```json
-{
-  "python": {
-    "installed": true,
-    "version": "Python 3.14.0"
-  },
-  "git": {
-    "installed": true,
-    "version": "git version 2.50.1"
-  }
-}
-```
-
----
-
-# Commands
-
-## Scan Environment
+Generate a system report from stored scan data:
 
 ```bash
-python main.py scan
-```
-
----
-
-## Scan Against Profile
-
-```bash
-python main.py scan webdev
-```
-
----
-
-## Report
-
-```bash
-python main.py report
+devsetup report
 ```
 
 ---
@@ -239,54 +170,40 @@ python main.py report
 ## Version
 
 ```bash
-python main.py version
+devsetup version
 ```
 
 ---
 
-## Profile Commands
+# Command Structure
 
-Create:
-
-```bash
-python main.py profile create <name>
-```
-
-List:
+## Scan system
 
 ```bash
-python main.py profile list
+devsetup scan
 ```
 
-Show:
+## Scan with profile comparison
 
 ```bash
-python main.py profile show <name>
+devsetup scan webdev
 ```
 
-Edit:
+## Profile management
 
 ```bash
-python main.py profile edit <name>
+devsetup profile <action>
 ```
 
-Delete:
+Actions:
 
-```bash
-python main.py profile delete <name>
-```
-
-Export:
-
-```bash
-python main.py profile export <name>
-```
-
-Import:
-
-```bash
-python main.py profile import <file>
-```
+* list
+* create
+* show
+* edit
+* delete
+* import
+* export
 
 ---
 
@@ -307,74 +224,62 @@ devsetup/
 ├── profiles/
 ├── VERSION
 ├── CHANGELOG.md
-├── README.md
-└── .gitignore
-```
-
----
-
-# Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/sw4tk/DevSetup.git
-```
-
-Move into the project:
-
-```bash
-cd DevSetup
-```
-
-Run:
-
-```bash
-python main.py scan
+└── README.md
 ```
 
 ---
 
 # Roadmap
 
-## v0.8
+## v0.7.0 (Current)
 
-* Environment Export
-* Portable environment snapshot format
-* Machine metadata support
+* Profile scanning system
+* Profile import/export
+* Built-in profiles
+* Clean argparse CLI
+* Removed unnecessary features
 
-## v0.9
+## v0.8.0
 
-* Apply Engine Foundation
-* Installation planner
-* Dependency resolution
+* UI/UX improvements in CLI output
+* Better formatting and readability
+* Faster scanning engine
 
-## v1.0
+## v0.9.0
 
-* One-command environment recreation
+* Apply engine (environment installer foundation)
+* Dependency resolution system
+* Safe installation planning
 
-Example:
+## v1.0.0
 
-```bash
-devsetup export
-devsetup apply
-```
+* Full environment recreation system
+* One-command setup:
+
+  ```bash
+  devsetup apply webdev
+  ```
+* Cross-machine reproducibility
 
 ---
 
 # Long-Term Vision
 
-Infrastructure as Code manages servers.
+DevSetup aims to become:
 
-DevSetup aims to manage developer machines.
+> “Infrastructure as Code, but for developer machines”
 
-A developer should be able to move to a completely new machine and restore their development workflow using a single command.
+A developer should be able to:
+
+* Move to a new machine
+* Run one command
+* Get full working environment instantly
 
 ---
 
 # Contributing
 
-Suggestions, bug reports, and pull requests are welcome.
+Contributions, ideas, and improvements are welcome.
 
 ---
 
@@ -386,4 +291,4 @@ Swastik
 
 # License
 
-MIT License
+MIT
