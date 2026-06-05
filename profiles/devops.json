@@ -1,0 +1,12 @@
+{
+    "name": "devops",
+    "description": "DevOps Engineering",
+    "tools": [
+        "git",
+        "docker",
+        "kubectl",
+        "helm",
+        "terraform",
+        "ansible"
+    ]
+}

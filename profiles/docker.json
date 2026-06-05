@@ -1,0 +1,8 @@
+{
+    "name": "docker",
+    "description": "Container Development",
+    "tools": [
+        "docker",
+        "docker-compose"
+    ]
+}

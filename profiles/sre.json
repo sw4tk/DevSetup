@@ -1,0 +1,10 @@
+{
+    "name": "sre",
+    "description": "Site Reliability Engineering",
+    "tools": [
+        "docker",
+        "kubectl",
+        "terraform",
+        "git"
+    ]
+}

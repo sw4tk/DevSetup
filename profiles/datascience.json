@@ -1,0 +1,10 @@
+{
+    "name": "datascience",
+    "description": "Data Science Environment",
+    "tools": [
+        "python",
+        "pip",
+        "git",
+        "jupyter"
+    ]
+}

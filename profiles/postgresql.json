@@ -1,0 +1,8 @@
+{
+    "name": "postgresql",
+    "description": "PostgreSQL Development",
+    "tools": [
+        "psql",
+        "git"
+    ]
+}

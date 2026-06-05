@@ -1,0 +1,10 @@
+{
+    "name": "cloud",
+    "description": "Cloud Engineering",
+    "tools": [
+        "aws",
+        "gcloud",
+        "az",
+        "terraform"
+    ]
+}

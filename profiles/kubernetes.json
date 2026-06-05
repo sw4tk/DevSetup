@@ -1,0 +1,9 @@
+{
+    "name": "kubernetes",
+    "description": "Kubernetes Administration",
+    "tools": [
+        "docker",
+        "kubectl",
+        "helm"
+    ]
+}

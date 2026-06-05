@@ -1,0 +1,9 @@
+{
+    "name": "ruby",
+    "description": "Ruby Development",
+    "tools": [
+        "ruby",
+        "gem",
+        "git"
+    ]
+}

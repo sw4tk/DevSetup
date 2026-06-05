@@ -1,0 +1,11 @@
+{
+    "name": "java",
+    "description": "Java Development",
+    "tools": [
+        "java",
+        "javac",
+        "mvn",
+        "gradle",
+        "git"
+    ]
+}

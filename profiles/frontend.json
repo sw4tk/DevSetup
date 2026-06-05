@@ -1,0 +1,10 @@
+{
+    "name": "frontend",
+    "description": "Frontend Development",
+    "tools": [
+        "git",
+        "node",
+        "npm",
+        "yarn"
+    ]
+}

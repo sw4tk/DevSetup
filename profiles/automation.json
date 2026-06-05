@@ -1,0 +1,11 @@
+{
+    "name": "automation",
+    "description": "Automation and Scripting",
+    "tools": [
+        "python",
+        "git",
+        "curl",
+        "wget",
+        "jq"
+    ]
+}
