@@ -9,7 +9,7 @@ from default_tools import default_tools
 from validators import profile_validator
 import os
 
-current_version = "0.6.0"
+current_version = "0.7.0"
 
 def namehandler(name):
     if name.endswith('.json'):
