@@ -1,5 +1,45 @@
 # Changelog
 
+# Changelog
+
+## v0.7.0
+
+### Added
+
+* Profile import functionality
+* Profile export functionality
+* Built-in developer profiles
+* Profile validation system
+* Profile metadata support
+* Health calculation helper
+
+### Improved
+
+* Migrated command routing to argparse
+* Simplified profile comparison workflow
+* Improved command structure
+* Improved code organization
+* Improved error handling
+
+### Removed
+
+* Doctor command
+* Duplicate comparison logic
+* Legacy command routing code
+
+### Refactored
+
+* Moved command logic into dedicated functions
+* Simplified CLI architecture
+* Reduced code duplication
+
+### Fixed
+
+* Invalid profile imports
+* Missing profile edge cases
+* Empty tool list validation
+
+
 ## v0.6.0 - Argparse CLI & Architecture Refactor
 
 ### Added
