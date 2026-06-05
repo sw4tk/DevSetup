@@ -19,7 +19,12 @@ def create_profile(name):
     
     profile = {}
     profile["name"] = name
-    profile["description"] = input("Enter a description for this profile: ").strip()
+    desc = input("Enter a description for this profile: ").strip()
+    if not desc:
+        print("Profile must have a description")
+        return
+    
+    profile["description"] = desc
     tools = []
    
     while True:

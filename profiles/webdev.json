@@ -1,10 +1,11 @@
 {
     "name": "webdev",
-    "description": "Frontend and Backend Development",
+    "description": "Frontend and Backend Web Development",
     "tools": [
         "git",
         "node",
         "npm",
-        "vscode"
+        "yarn",
+        "pnpm"
     ]
 }

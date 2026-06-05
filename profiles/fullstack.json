@@ -1,0 +1,11 @@
+{
+    "name": "fullstack",
+    "description": "Full Stack Development",
+    "tools": [
+        "git",
+        "node",
+        "npm",
+        "docker",
+        "python"
+    ]
+}

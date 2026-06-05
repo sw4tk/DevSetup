@@ -1,0 +1,10 @@
+{
+    "name": "cybersecurity",
+    "description": "Cybersecurity and Security Research",
+    "tools": [
+        "python",
+        "git",
+        "curl",
+        "wget"
+    ]
+}

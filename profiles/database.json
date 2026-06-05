@@ -1,0 +1,10 @@
+{
+    "name": "database",
+    "description": "Database Administration",
+    "tools": [
+        "psql",
+        "mysql",
+        "mongosh",
+        "redis-cli"
+    ]
+}

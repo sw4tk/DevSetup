@@ -1,0 +1,8 @@
+{
+    "name": "php",
+    "description": "PHP Development",
+    "tools": [
+        "php",
+        "git"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "name": "golang",
+    "description": "Go Development",
+    "tools": [
+        "go",
+        "git"
+    ]
+}

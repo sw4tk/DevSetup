@@ -1,0 +1,9 @@
+{
+    "name": "rust",
+    "description": "Rust Development",
+    "tools": [
+        "rustc",
+        "cargo",
+        "git"
+    ]
+}

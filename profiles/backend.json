@@ -1,0 +1,10 @@
+{
+    "name": "backend",
+    "description": "Backend Development",
+    "tools": [
+        "git",
+        "node",
+        "npm",
+        "docker"
+    ]
+}

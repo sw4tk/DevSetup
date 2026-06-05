@@ -19,6 +19,8 @@ profile_subparsers.add_parser('create', help='Create a new profile').add_argumen
 profile_subparsers.add_parser('delete', help='Delete a profile').add_argument('name', help='Name of the profile to delete')
 profile_subparsers.add_parser('show', help='Show a profile').add_argument('name', help='Name of the profile to show')
 profile_subparsers.add_parser('edit', help='Edit a profile').add_argument('name', help='Name of the profile to edit')
+profile_subparsers.add_parser('import', help='Import a profile from a JSON file').add_argument('name', help='Name of the profile to import (without .json extension)')
+profile_subparsers.add_parser('export', help='Export a profile to a JSON file').add_argument('name', help='Name of the profile to export (without .json extension)')
 profile_parser.set_defaults(func=profile)
 
 version_parser = subparsers.add_parser('version', help='Show the current version of Devsetup')
