@@ -1,5 +1,48 @@
 # Changelog
 
+## v0.8.0
+
+### Added
+
+* Profile installation system
+* Individual tool installation
+* Individual tool scanning
+* Built-in developer profiles
+* Profile import
+* Profile export
+* Profile validation
+* Dependency-aware installation
+* Cross-platform command mappings
+* Expanded tool database
+* Installation summary reporting
+* Environment rescan after installation
+
+### Improved
+
+* Installer architecture
+* Profile management workflow
+* Tool detection accuracy
+* Version detection system
+* CLI user experience
+
+### Fixed
+
+* Windows package manager integration issues
+* Version command compatibility issues
+* Dependency handling edge cases
+* PATH-related installation verification issues
+
+### Removed
+
+* Doctor command (replaced by profile comparison workflow)
+
+### Notes
+
+DevSetup is now capable of both auditing and setting up developer environments.
+
+This release lays the foundation for automated environment recreation in future releases.
+
+
 # Changelog
 
 ## v0.7.0

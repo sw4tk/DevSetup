@@ -5,10 +5,10 @@ def profile_validator(profile):
         if key not in profile:
             raise ValueError(f"Profile is missing required field: {key}")
         
-    if not profile['name'].strip:
+    if not profile['name'].strip():
         raise ValueError("Profile 'name' field cannot be empty")
 
-    if not profile['description'].strip:
+    if not profile['description'].strip():
         raise ValueError("Profile 'description' field cannot be empty")
         
     if not isinstance(profile['name'], str):
