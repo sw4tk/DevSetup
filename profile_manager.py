@@ -92,9 +92,11 @@ def edit_profile(name):
     if description:
         profile["description"] = description
 
-    tools = input("Enter new tools (comma separated, leave blank to keep current): ")
+    tools = input("Enter new tools (comma separated, leave blank to keep current): ").strip()
     if tools:
-        profile["tools"] = tools.split(",")
+        tools = tools.split(",")
+        tools = [tool.strip() for tool in tools if tool.strip()]
+        profile["tools"] = tools
     
     psaver(name,profile)
     print(f"Profile {name} updated successfully")
