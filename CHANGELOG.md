@@ -1,184 +1,194 @@
-# Changelog
-
-## v0.8.0
-
-### Added
-
-* Profile installation system
-* Individual tool installation
-* Individual tool scanning
-* Built-in developer profiles
-* Profile import
-* Profile export
-* Profile validation
-* Dependency-aware installation
-* Cross-platform command mappings
-* Expanded tool database
-* Installation summary reporting
-* Environment rescan after installation
-
-### Improved
-
-* Installer architecture
-* Profile management workflow
-* Tool detection accuracy
-* Version detection system
-* CLI user experience
-
-### Fixed
-
-* Windows package manager integration issues
-* Version command compatibility issues
-* Dependency handling edge cases
-* PATH-related installation verification issues
-
-### Removed
-
-* Doctor command (replaced by profile comparison workflow)
-
-### Notes
-
-DevSetup is now capable of both auditing and setting up developer environments.
-
-This release lays the foundation for automated environment recreation in future releases.
-
 
 # Changelog
 
-## v0.7.0
+All notable changes to DevSetup are documented here.
+
+---
+
+# v1.0.0
+
+## Added
+
+### Rich Terminal UI
+
+- Complete UI redesign using Rich
+- Semantic color system
+- Minimal tables
+- Panels
+- Dynamic loaders
+- Installation summaries
+- Environment dashboards
+
+### Project Workflow
+
+- Added `devsetup init`
+- Added `devsetup sync`
+- Local `.devsetup.json` support
+
+### Profile Management
+
+- Frozen profile exports
+- Version pinning
+- Profile inspection
+- Profile metadata
+
+### Installation Engine
+
+- Cross-platform installers
+- Dependency-aware installation
+- Installation planning
+- Better subprocess handling
+
+### User Experience
+
+- Rich confirmation prompts
+- Consistent headers
+- Cleaner error rendering
+- Improved progress indicators
+
+---
+
+## Changed
+
+- Packaged as a global executable CLI
+- Refactored architecture into service-based modules
+- Unified command rendering
+- Improved profile handling
+- Standardized version headers
+
+---
+
+## Fixed
+
+- Silent hanging during long scans
+- Theme rendering inconsistencies
+- Winget subprocess parsing
+- Installation verification edge cases
+- PATH detection issues
+
+---
+
+# v0.8.0
+
+## Added
+
+- Profile installation
+- Individual tool installation
+- Tool scanning
+- Built-in profiles
+- Profile import/export
+- Dependency-aware installation
+- Cross-platform package mappings
+- Installation summaries
+
+## Improved
+
+- Installer architecture
+- Version detection
+- Tool detection
+- Profile workflow
+
+## Fixed
+
+- Windows package manager integration
+- Version command compatibility
+- Dependency handling
+
+## Removed
+
+- Doctor command
+
+---
+
+# v0.7.0
+
+## Added
+
+- Profile import
+- Profile export
+- Built-in profiles
+- Validation system
+- Metadata support
+
+## Improved
+
+- Argparse routing
+- CLI organization
+- Error handling
+
+## Removed
+
+- Doctor command
+- Legacy routing
+
+---
+
+# v0.6.0
+
+## Added
+
+- Profile scanning
+- Environment health calculation
+- Command handlers
+
+## Changed
+
+- Migrated to argparse
+- Refactored architecture
+- Improved maintainability
+
+## Fixed
+
+- Invalid profile handling
+
+---
+
+# v0.5.0
+
+## Added
+
+- Custom profiles
+- Profile editing
+- Profile deletion
+- Profile listing
+
+---
+
+# v0.4.0
+
+## Added
+
+- Doctor command
+- Development profiles
+- Health scoring
+
+---
+
+# v0.3.0
+
+## Added
+
+- Scan command
+- Report command
+- Version command
+
+---
+
+# v0.2.0
+
+## Added
+
+- JSON export
+- Environment reports
+
+---
+
+# v0.1.0
+
+## Initial Release
 
 ### Added
 
-* Profile import functionality
-* Profile export functionality
-* Built-in developer profiles
-* Profile validation system
-* Profile metadata support
-* Health calculation helper
-
-### Improved
-
-* Migrated command routing to argparse
-* Simplified profile comparison workflow
-* Improved command structure
-* Improved code organization
-* Improved error handling
-
-### Removed
-
-* Doctor command
-* Duplicate comparison logic
-* Legacy command routing code
-
-### Refactored
-
-* Moved command logic into dedicated functions
-* Simplified CLI architecture
-* Reduced code duplication
-
-### Fixed
-
-* Invalid profile imports
-* Missing profile edge cases
-* Empty tool list validation
-
-
-## v0.6.0 - Argparse CLI & Architecture Refactor
-
-### Added
-
-* Profile-based environment scanning
-* Environment health calculation
-* Dedicated command handler functions
-* Improved profile comparison workflow
-* Better error handling for missing profiles
-
-### Changed
-
-* Migrated CLI from `sys.argv` to `argparse`
-* Refactored command routing
-* Simplified project structure
-* Improved code organization and maintainability
-* Moved default tool definitions into a dedicated module
-* Updated README and project documentation
-
-### Removed
-
-* Legacy doctor command workflow
-* Unnecessary command-routing complexity
-* Redundant architecture components
-
-### Fixed
-
-* Safer profile loading
-* More reliable handling of invalid profile names
-* Reduced duplicate logic across commands
-
-### Commands
-
-```bash
-python main.py scan
-python main.py scan <profile>
-
-python main.py report
-
-python main.py profile list
-python main.py profile create <name>
-python main.py profile show <name>
-python main.py profile edit <name>
-python main.py profile delete <name>
-
-python main.py version
+- Tool detection
+- Version scanning
 ```
-
----
-
-## v0.5.0 - Custom Profiles
-
-### Added
-
-* Profile creation
-* Profile editing
-* Profile deletion
-* Profile listing
-* JSON-based profile storage
-
----
-
-## v0.4.0 - Environment Diagnostics
-
-### Added
-
-* Doctor command
-* Development profiles
-* Environment health scoring
-* Profile-aware diagnostics
-
----
-
-## v0.3.0 - CLI Commands
-
-### Added
-
-* Scan command
-* Report command
-* Version command
-* JSON loading support
-
----
-
-## v0.2.0 - Reporting
-
-### Added
-
-* JSON export
-* Environment reports
-
----
-
-## v0.1.0 - Initial Release
-
-### Added
-
-* Tool detection
-* Version scanning

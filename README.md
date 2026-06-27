@@ -1,397 +1,187 @@
+
 # DevSetup
 
-DevSetup is an open-source Python CLI that helps developers scan their machines, compare them against development profiles, and install missing tools automatically.
+> **Infrastructure as Code for Developer Machines**
 
-The goal is simple:
+DevSetup is an open-source Python CLI that scans developer environments, compares them against reusable development profiles, and installs missing tools automatically.
 
-**Set up a development environment in minutes instead of hours.**
-
----
-
-# Current Version
-
-**v0.8.0**
+Instead of manually installing Git, Python, Node.js, Docker, databases, cloud CLIs, and other developer tools every time you switch machines, DevSetup lets you recreate your entire development environment with a single command.
 
 ---
 
-# Features
+## Current Version
 
-## Environment Scanning
+**v1.0.0**
 
-Scan installed development tools and generate a report.
+---
 
-Example:
+## Features
+
+### Project Environment Workflow
+
+Create project-specific environment files similar to `package.json`, but for your machine.
 
 ```bash
-python main.py scan
+devsetup init
+````
+
+Creates:
+
+```
+.devsetup.json
 ```
 
-Supported tools include:
-
-* Python
-* Git
-* Node.js
-* Java
-* Go
-* Rust
-* Docker
-* Kubernetes
-* Terraform
-* AWS CLI
-* Azure CLI
-* GCP CLI
-* MongoDB
-* PostgreSQL
-* Redis
-* Yarn
-* pnpm
-* Bun
-* And many more
-
----
-
-## Profile-Based Scanning
-
-Compare your machine against a development profile.
-
-Example:
+Synchronize your local environment:
 
 ```bash
-python main.py scan webdev
-```
-
-Output:
-
-```text
-Environment Health : 80.00%
-Installed : 8/10
+devsetup sync
 ```
 
 ---
 
-## Built-In Profiles
+### Environment Scan
 
-DevSetup ships with developer profiles including:
+Audit your current machine.
+
+```bash
+devsetup scan
+```
+
+Shows:
+
+* Installed tools
+* Missing tools
+* Versions
+* Categories
+* Environment health
+
+---
+
+### Profile Scan
+
+Compare your environment against a development profile.
+
+```bash
+devsetup scan webdev
+```
+
+Displays:
+
+* Match percentage
+* Missing tools
+* Missing categories
+* Environment compatibility
+
+---
+
+### Install Development Profiles
+
+Automatically install everything required for a profile.
+
+```bash
+devsetup install webdev
+```
+
+Supports:
+
+* Version-aware installations
+* Dependency handling
+* Installation planning
+* Installation summaries
+
+---
+
+### Install Individual Tools
+
+```bash
+devsetup install-tool git
+```
+
+Uses the native package manager:
+
+* Windows → Winget
+* macOS → Homebrew
+* Linux → Apt
+
+---
+
+### Profile Management
+
+```bash
+devsetup profile list
+
+devsetup profile show webdev
+
+devsetup profile export webdev
+
+devsetup profile export webdev --freeze
+
+devsetup profile import profile.json
+```
+
+Frozen profiles pin every tool to an exact version, making environments fully reproducible.
+
+---
+
+## Built-in Profiles
+
+DevSetup includes ready-to-use profiles for:
 
 * Web Development
-* Frontend Development
-* Backend Development
-* Full Stack Development
 * Python Development
 * AI Engineering
 * Data Science
-* Machine Learning
 * DevOps
-* SRE
 * Cloud Engineering
-* Cybersecurity
-* Docker
-* Kubernetes
-* Java
-* Go
-* Rust
-* PHP
-* Ruby
-* PostgreSQL
-* MongoDB
-* Automation
+* Docker & Kubernetes
 * Database Engineering
 
 and more.
 
 ---
 
-## Custom Profiles
+## Roadmap
 
-Create your own profiles.
+### v1.0.0
 
-Create:
+* Rich terminal UI
+* Project initialization
+* Environment synchronization
+* Frozen profile exports
+* Cross-platform installation
+* Health dashboard
 
-```bash
-python main.py profile create myprofile
-```
+### v1.1.0
 
-List:
+* Installation rollback
+* DNF support
+* Pacman support
+* Custom registries
+* Plugin system
 
-```bash
-python main.py profile list
-```
+### Long-Term Vision
 
-Show:
-
-```bash
-python main.py profile show myprofile
-```
-
-Edit:
-
-```bash
-python main.py profile edit myprofile
-```
-
-Delete:
-
-```bash
-python main.py profile delete myprofile
-```
-
----
-
-## Profile Export
-
-Export profiles for sharing.
-
-Example:
-
-```bash
-python main.py profile export webdev
-```
-
-Output:
-
-```text
-webdev_export.json
-```
-
----
-
-## Profile Import
-
-Import profiles from JSON files.
-
-Example:
-
-```bash
-python main.py profile import webdev_export.json
-```
-
-Imported profiles are automatically validated before being stored.
-
----
-
-## Profile Validation
-
-DevSetup validates imported profiles.
-
-Checks include:
-
-* Required fields exist
-* Valid profile structure
-* Tool list validation
-* Invalid data rejection
-
----
-
-## Tool Installation
-
-Install missing tools from a profile automatically.
-
-Example:
-
-```bash
-python main.py install webdev
-```
-
-DevSetup will:
-
-1. Scan the current machine
-2. Detect missing tools
-3. Ask for confirmation
-4. Install supported tools
-5. Rescan the environment
-
-Example:
-
-```text
-Missing:
-- git
-- node
-
-Install missing tools? (y/n)
-```
-
----
-
-## Individual Tool Installation
-
-Install a specific tool directly.
-
-Example:
-
-```bash
-python main.py install-tool git
-```
-
-Supported package managers:
-
-### Windows
-
-* Winget
-
-### Linux
-
-* Apt
-* DNF
-* Pacman (planned)
-
-### macOS
-
-* Homebrew
-
----
-
-# Commands
-
-## Scan Environment
-
-```bash
-python main.py scan
-```
-
----
-
-## Scan Profile
-
-```bash
-python main.py scan webdev
-```
-
----
-
-## Install Profile
-
-```bash
-python main.py install webdev
-```
-
----
-
-## Install Single Tool
-
-```bash
-python main.py install-tool git
-```
-
----
-
-## Generate Report
-
-```bash
-python main.py report
-```
-
----
-
-## Version
-
-```bash
-python main.py version
-```
-
----
-
-## Profile Commands
-
-```bash
-python main.py profile create <name>
-python main.py profile list
-python main.py profile show <name>
-python main.py profile edit <name>
-python main.py profile delete <name>
-python main.py profile export <name>
-python main.py profile import <file>
-```
-
----
-
-# Project Structure
-
-```text
-devsetup/
-
-├── main.py
-├── functions.py
-├── data_manager.py
-├── installer.py
-├── printer.py
-├── validators.py
-├── profile_manager.py
-├── profile_storage.py
-├── storage.py
-├── default_tools.py
-├── version_commands.py
-├── tool_metadata.py
-├── profiles/
-├── VERSION
-├── CHANGELOG.md
-└── README.md
-```
-
----
-
-# Roadmap
-
-## v0.8.0 (Current)
-
-* Profile import/export
-* Built-in profiles
-* Environment scanning
-* Profile comparison
-* Automated tool installation
-* Individual tool installation
-
-## v0.9.0
-
-* Installation reliability improvements
-* Dependency handling
-* Better package manager support
-* Collision detection
-* Installation rollback system
-* Improved CLI UX
-
-## v1.0.0
-
-* Fully automated environment setup
-* One-command profile installation
-* Cross-platform installation engine
-* Production-ready release
-* Packaged executable
-
-Example:
-
-```bash
-devsetup install webdev
-```
-
----
-
-# Long-Term Vision
-
-DevSetup aims to become:
-
-> Infrastructure as Code for Developer Machines
+DevSetup aims to become the **Infrastructure as Code** solution for developer workstations.
 
 A developer should be able to:
 
-* Move to a new machine
-* Install DevSetup
-* Run one command
-* Get a fully configured development environment
+1. Buy a new computer.
+2. Install DevSetup.
+3. Run a single command.
+
+Their entire development environment should be restored automatically.
 
 ---
 
-# Contributing
+## Author
 
-Pull requests, bug reports, and ideas are welcome.
-
----
-
-# Author
-
-Swastik
+Swastik Mandal
 
 ---
 
-# License
+## License
 
-MIT
+MIT License
+
+```
+```
